@@ -4,7 +4,7 @@
 
 CST438 group 6:
 - [example](url)
-- [example](url)
+- [Pedro Gutierrez Jr.](https://github.com/PedroG1018)
 - [Isai Molina](https://github.com/isaiM6)
 - [Sterling 'Hal' Halberstadt](https://github.com/halHalberstadt)
 
