@@ -3,7 +3,7 @@
 ### Team Members 
 
 CST438 group 6:
-- [example](url)
+- [Jose Barroso A](https://github.com/jbarrosoarr)
 - [Pedro Gutierrez Jr.](https://github.com/PedroG1018)
 - [Isai Molina](https://github.com/isaiM6)
 - [Sterling 'Hal' Halberstadt](https://github.com/halHalberstadt)
