@@ -7,9 +7,6 @@ import androidx.loader.content.AsyncTaskLoader;
 
 import java.io.IOException;
 
-/**
- * Created by santhoshvai on 27/04/16.
- */
 public class RetrofitLoader extends AsyncTaskLoader<searchService.ResultWithDetail> {
 
     private static final String LOG_TAG = "RetrofitLoader";
