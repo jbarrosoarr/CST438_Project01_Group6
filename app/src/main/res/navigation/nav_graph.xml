@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_movieScrollingFragment"
+            app:destination="@id/movieScrollingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_SecondFragment_to_movieScrollingFragment"
+            app:destination="@id/movieScrollingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieScrollingFragment"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.MovieScrollingFragment"
+        android:label="fragment_movie_scrolling"
+        tools:layout="@layout/fragment_movie_scrolling" >
+        <action
+            android:id="@+id/action_movieScrollingFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_movieScrollingFragment_to_settingsFragment2"
+            app:destination="@id/settingsFragment2" />
+        <action
+            android:id="@+id/action_movieScrollingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.SettingsFragment2"
+        android:label="SettingsFragment2" >
+        <action
+            android:id="@+id/action_settingsFragment2_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_settingsFragment2_to_createUserFragment"
+            app:destination="@id/createUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/createUserFragment"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.CreateUserFragment"
+        android:label="fragment_create_user"
+        tools:layout="@layout/fragment_create_user" />
+</navigation>
