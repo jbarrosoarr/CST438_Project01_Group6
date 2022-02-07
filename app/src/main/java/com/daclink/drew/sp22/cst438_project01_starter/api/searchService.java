@@ -19,9 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-/**
- * Retrofit omdbapi consumer - search my movie title functionality
- */
+
 public class searchService {
     private static final String API_KEY = "4d25d61f";
     private static final String API_URL = "http://www.omdbapi.com";
