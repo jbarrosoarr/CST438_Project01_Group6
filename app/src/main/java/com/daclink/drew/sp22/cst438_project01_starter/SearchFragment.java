@@ -37,16 +37,28 @@ public class SearchFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         binding = FragmentSearchBinding.inflate(inflater, container, false);
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        //View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-        searchButton.setOnClickListener(v -> performSearch());
-
-        return view;
+        return binding.getRoot();
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        adapter = new SearchResultsAdapter();
+
+        viewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
+        viewModel.init();
+        viewModel.getVolumesResponseLiveData().observe(getViewLifecycleOwner(), new Observer<APIValues>() {
+            @Override
+            public void onChanged(APIValues response) {
+                if (response != null) {
+                    adapter.setResults(response);
+                }
+            }
+        });
+        this.binding.fragmentSearchToFirstFragment.setOnClickListener(view1 -> NavHostFragment.findNavController(SearchFragment.this)
+                .navigate(R.id.action_SearchFragment_to_FirstFragment));
 
         RecyclerView recyclerView = view.findViewById(R.id.fragment_search_searchResultsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -55,30 +67,9 @@ public class SearchFragment extends Fragment {
         keywordEditText = view.findViewById(R.id.fragment_search_keyword);
         searchButton = view.findViewById(R.id.fragment_search);
         binding.fragmentSearchToFirstFragment.setOnClickListener(view1 -> NavHostFragment.findNavController(SearchFragment.this)
-                .navigate(R.id.action_FirstFragment_to_SecondFragment));
+                .navigate(R.id.action_FirstFragment_to_SearchFragment));
 
-
-        searchButton.setOnClickListener(v -> performSearch());
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        adapter = new SearchResultsAdapter();
-
-        viewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
-        viewModel.init();
-        viewModel.getVolumesResponseLiveData().observe(this, new Observer<APIValues>() {
-            @Override
-            public void onChanged(APIValues response) {
-                if (response != null) {
-                    adapter.setResults(response);
-                }
-            }
-        });
-        this.binding.fragmentSearchToFirstFragment.setOnClickListener(view12 -> NavHostFragment.findNavController(SearchFragment.this)
-                .navigate(R.id.action_SearchFragment_to_FirstFragment));
+        searchButton.setOnClickListener(view3 -> performSearch());
     }
 
     public void performSearch() {
