@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.daclink.drew.sp22.cst438_project01_starter.MainActivity">
+    <item
+        android:id="@+id/close_page"
+        android:icon="@drawable/ic_baseline_close_24"
+        android:title="@string/close"/>
+</menu>
