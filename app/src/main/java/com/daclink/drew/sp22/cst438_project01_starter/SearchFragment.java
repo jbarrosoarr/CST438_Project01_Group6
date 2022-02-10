@@ -31,17 +31,6 @@ public class SearchFragment extends Fragment {
     private TextInputEditText keywordEditText, authorEditText;
     private Button searchButton;
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        binding.fragmentSearchToFirstFragment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(SearchFragment.this)
-                        .navigate(R.id.action_SearchFragment_to_FirstFragment);
-            }
-        });
-    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +47,8 @@ public class SearchFragment extends Fragment {
                 }
             }
         });
+        binding.fragmentSearchToFirstFragment.setOnClickListener(view12 -> NavHostFragment.findNavController(SearchFragment.this)
+                .navigate(R.id.action_SearchFragment_to_FirstFragment));
     }
 
     @Nullable
@@ -73,12 +64,7 @@ public class SearchFragment extends Fragment {
         //authorEditText = view.findViewById(R.id.fragment_search_author);
         searchButton = view.findViewById(R.id.fragment_search_search);
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                performSearch();
-            }
-        });
+        searchButton.setOnClickListener(v -> performSearch());
 
         return view;
     }

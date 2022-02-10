@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/SearchFragment"
-        android:name="com.daclink.drew.sp22.cst438_project01_starter.SecondFragment"
+        android:name="com.daclink.drew.sp22.cst438_project01_starter.SearchFragment"
         android:label="@string/search_fragment_label"
         tools:layout="@layout/fragment_search">
 

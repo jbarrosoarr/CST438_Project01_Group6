@@ -36,18 +36,22 @@
 <!--            android:id="@+id/fragment_search_author" />-->
 
 <!--    </com.google.android.material.textfield.TextInputLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:id="@+id/fragment_search_search" />
+        <Button
+            android:id="@+id/fragment_search_search"
+            android:layout_width="202dp"
+            android:layout_height="wrap_content"
+            android:text="Search" />
 
-    <Button
-        android:id="@+id/fragment_search_toFirstFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back" />
+        <Button
+            android:id="@+id/fragment_search_toFirstFragment"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content"
+            android:text="Back" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
