@@ -11,22 +11,37 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.daclink.drew.sp22.cst438_project01_starter.adapters.SearchResultsAdapter;
+import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentFirstBinding;
+import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentSearchBinding;
 import com.daclink.drew.sp22.cst438_project01_starter.models.APIValues;
 import com.daclink.drew.sp22.cst438_project01_starter.viewModels.SearchViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class SearchFragment extends Fragment {
 
+    private FragmentSearchBinding binding;
     private SearchViewModel viewModel;
     private SearchResultsAdapter adapter;
 
     private TextInputEditText keywordEditText, authorEditText;
     private Button searchButton;
 
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.fragmentSearchToFirstFragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(SearchFragment.this)
+                        .navigate(R.id.action_SearchFragment_to_FirstFragment);
+            }
+        });
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +70,7 @@ public class SearchFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         keywordEditText = view.findViewById(R.id.fragment_search_keyword);
-        authorEditText = view.findViewById(R.id.fragment_search_author);
+        //authorEditText = view.findViewById(R.id.fragment_search_author);
         searchButton = view.findViewById(R.id.fragment_search_search);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
