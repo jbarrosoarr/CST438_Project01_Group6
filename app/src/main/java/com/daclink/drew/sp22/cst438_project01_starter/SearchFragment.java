@@ -18,18 +18,48 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.daclink.drew.sp22.cst438_project01_starter.adapters.SearchResultsAdapter;
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentFirstBinding;
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentSearchBinding;
+import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentSecondBinding;
 import com.daclink.drew.sp22.cst438_project01_starter.models.APIValues;
 import com.daclink.drew.sp22.cst438_project01_starter.viewModels.SearchViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class SearchFragment extends Fragment {
 
-    private FragmentSearchBinding binding;
+    private @NonNull FragmentSearchBinding binding;
     private SearchViewModel viewModel;
     private SearchResultsAdapter adapter;
 
     private TextInputEditText keywordEditText, authorEditText;
     private Button searchButton;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        binding = FragmentSearchBinding.inflate(inflater, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+
+        searchButton.setOnClickListener(v -> performSearch());
+
+        return view;
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+        RecyclerView recyclerView = view.findViewById(R.id.fragment_search_searchResultsRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+
+        keywordEditText = view.findViewById(R.id.fragment_search_keyword);
+        searchButton = view.findViewById(R.id.fragment_search);
+        binding.fragmentSearchToFirstFragment.setOnClickListener(view1 -> NavHostFragment.findNavController(SearchFragment.this)
+                .navigate(R.id.action_FirstFragment_to_SecondFragment));
+
+
+        searchButton.setOnClickListener(v -> performSearch());
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,31 +77,19 @@ public class SearchFragment extends Fragment {
                 }
             }
         });
-        binding.fragmentSearchToFirstFragment.setOnClickListener(view12 -> NavHostFragment.findNavController(SearchFragment.this)
+        this.binding.fragmentSearchToFirstFragment.setOnClickListener(view12 -> NavHostFragment.findNavController(SearchFragment.this)
                 .navigate(R.id.action_SearchFragment_to_FirstFragment));
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
-
-        RecyclerView recyclerView = view.findViewById(R.id.fragment_search_searchResultsRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
-
-        keywordEditText = view.findViewById(R.id.fragment_search_keyword);
-        //authorEditText = view.findViewById(R.id.fragment_search_author);
-        searchButton = view.findViewById(R.id.fragment_search_search);
-
-        searchButton.setOnClickListener(v -> performSearch());
-
-        return view;
     }
 
     public void performSearch() {
         String title = keywordEditText.getEditableText().toString();
 
         viewModel.searchVolumes(title);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
