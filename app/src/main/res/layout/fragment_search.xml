@@ -47,11 +47,6 @@
             android:layout_height="wrap_content"
             android:text="Search" />
 
-        <Button
-            android:id="@+id/fragment_search_toFirstFragment"
-            android:layout_width="194dp"
-            android:layout_height="wrap_content"
-            android:text="Back" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

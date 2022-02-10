@@ -16,16 +16,16 @@ import retrofit2.Response;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Repository {
-    private static final String SEARCH_SERVICE_BASE_URL = "https://www.googleapis.com/";
+    private static final String SEARCH_SERVICE_BASE_URL = "https://omdbapi.com/";
 
     private SearchService searchService;
     private MutableLiveData<APIValues> responseLiveData;
 
     public Repository() {
-        responseLiveData = new MutableLiveData<>();
+        responseLiveData = new MutableLiveData<APIValues>();
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        interceptor.level(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         searchService = new retrofit2.Retrofit.Builder()
@@ -42,8 +42,10 @@ public class Repository {
                 .enqueue(new Callback<APIValues>() {
                     @Override
                     public void onResponse(Call<APIValues> call, Response<APIValues> response) {
+                        //System.out.println(call);
                         if (response.body() != null) {
                             responseLiveData.postValue(response.body());
+                            System.out.println(response);
                         }
                     }
 

@@ -57,8 +57,8 @@ public class SearchFragment extends Fragment {
                 }
             }
         });
-        this.binding.fragmentSearchToFirstFragment.setOnClickListener(view1 -> NavHostFragment.findNavController(SearchFragment.this)
-                .navigate(R.id.action_SearchFragment_to_FirstFragment));
+//        this.binding.fragmentSearchToFirstFragment.setOnClickListener(view1 -> NavHostFragment.findNavController(SearchFragment.this)
+//                .navigate(R.id.action_SearchFragment_to_FirstFragment));
 
         RecyclerView recyclerView = view.findViewById(R.id.fragment_search_searchResultsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -66,8 +66,6 @@ public class SearchFragment extends Fragment {
 
         keywordEditText = view.findViewById(R.id.fragment_search_keyword);
         searchButton = view.findViewById(R.id.fragment_search);
-        binding.fragmentSearchToFirstFragment.setOnClickListener(view1 -> NavHostFragment.findNavController(SearchFragment.this)
-                .navigate(R.id.action_FirstFragment_to_SearchFragment));
 
         searchButton.setOnClickListener(view3 -> performSearch());
     }
