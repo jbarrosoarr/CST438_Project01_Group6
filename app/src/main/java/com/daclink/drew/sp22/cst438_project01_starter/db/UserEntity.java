@@ -7,10 +7,12 @@ import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 
-@Entity(tableName = "user")
+@Entity(tableName = AppDatabase.USER_TABLE)
 public class UserEntity {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    private int userId;
+
     @NonNull
     private String username;
 
@@ -26,6 +28,13 @@ public class UserEntity {
         this.name = name;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     @NonNull
     public String getUsername() {
