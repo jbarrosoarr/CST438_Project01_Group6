@@ -4,20 +4,33 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
+
+import com.google.firebase.firestore.auth.User;
 
 import java.util.List;
 
 @Dao
 public interface UserDao {
     @Insert
-    void insertUser(UserEntity user);
+    void insertUser(UserEntity... users);
+
+    @Update
+    void updateUser(UserEntity... users);
 
     @Delete
-    void delete(UserEntity user);
+    void delete(UserEntity... user);
 
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE userId = :userId")
+    UserEntity getUserById(int userId);
+
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE username = :username")
+    UserEntity getUserByUsername(String username);
+
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " ORDER BY username DESC")
     List<UserEntity> getAllUsers();
 
-
+    @Query("DELETE FROM " + AppDatabase.USER_TABLE)
+    void deleteAllUsers();
 
 }

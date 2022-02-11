@@ -19,6 +19,7 @@
     <string name="enter_username">Enter username</string>
     <string name="enter_name">Enter name</string>
     <string name="create">Create</string>
+    <string name="close">Close</string>
 
 
 </resources>

@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CST438_Project01_Starter">
         <activity
-            android:name=".ChangePasswordActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ChangePasswordActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CST438_Project01_Starter.NoActionBar">
