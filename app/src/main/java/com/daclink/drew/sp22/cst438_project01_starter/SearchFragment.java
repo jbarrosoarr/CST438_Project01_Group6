@@ -38,7 +38,6 @@ public class SearchFragment extends Fragment {
 
         binding = FragmentSearchBinding.inflate(inflater, container, false);
         //View view = inflater.inflate(R.layout.fragment_search, container, false);
-
         return binding.getRoot();
     }
 
@@ -59,6 +58,7 @@ public class SearchFragment extends Fragment {
         });
 //        this.binding.fragmentSearchToFirstFragment.setOnClickListener(view1 -> NavHostFragment.findNavController(SearchFragment.this)
 //                .navigate(R.id.action_SearchFragment_to_FirstFragment));
+        showExample();
 
         RecyclerView recyclerView = view.findViewById(R.id.fragment_search_searchResultsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -68,6 +68,14 @@ public class SearchFragment extends Fragment {
         searchButton = view.findViewById(R.id.fragment_search);
 
         searchButton.setOnClickListener(view3 -> performSearch());
+    }
+
+    public void showExample(){
+        viewModel.searchVolumes("Tron");
+        RecyclerView recyclerView = binding.getRoot().findViewById(R.id.fragment_search_searchResultsRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+
     }
 
     public void performSearch() {
