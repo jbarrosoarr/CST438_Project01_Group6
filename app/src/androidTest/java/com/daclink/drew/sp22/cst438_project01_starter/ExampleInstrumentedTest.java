@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
+import com.daclink.drew.sp22.cst438_project01_starter.repositories.Repository;
+
 /**
  * Instrumented test, which will execute on an Android device.
  *
