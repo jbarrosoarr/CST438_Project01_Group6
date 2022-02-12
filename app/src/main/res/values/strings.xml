@@ -23,13 +23,15 @@
     <string name="enter_name">Enter name</string>
     <string name="create">Create</string>
     <string name="close">Close</string>
-    <string name="director">Director</string>
+    <string name="director">Director(s)</string>
     <string name="runtime">Runtime</string>
     <string name="released">Released</string>
     <string name="title">Title</string>
     <string name="plot">Plot</string>
     <string name="exit">Exit</string>
-=======
+    <string name="genre">Genre</string>
+    <string name="actors">Actors</string>
+    =======
 
 
 >>>>>>> main

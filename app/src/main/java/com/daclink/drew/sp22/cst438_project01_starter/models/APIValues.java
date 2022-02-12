@@ -139,7 +139,7 @@ public class APIValues implements Parcelable
     public APIValues() {
     }
 
-    public List<String> getValues(){
+    public List<String> getValues() {
         ArrayList list = new ArrayList(
                 Arrays.asList(this.title,
                         this.year,
@@ -152,6 +152,7 @@ public class APIValues implements Parcelable
                         this.language,
                         this.poster,
                         this.country,
+                        this.runtime,
                         this.imdbID)
         );
         return list;

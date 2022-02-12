@@ -54,7 +54,7 @@ public class Repository {
     }
 
     public void searchMovieByIMDB_Id(String imdbId) {
-        searchService.searchValues(imdbId)
+        searchService.searchValuesByIMDB_Id(imdbId)
                 .enqueue(new Callback<APIValues>() {
                     @Override
                     public void onResponse(Call<APIValues> call, Response<APIValues> response) {

@@ -16,6 +16,8 @@ import com.daclink.drew.sp22.cst438_project01_starter.MovieDetailsActivity;
 import com.daclink.drew.sp22.cst438_project01_starter.models.APIValues;
 import com.daclink.drew.sp22.cst438_project01_starter.R;
 
+import java.util.List;
+
 public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdapter.SearchResultHolder> {
     private APIValues results = new APIValues();
     private Context context;
@@ -56,7 +58,8 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = MovieDetailsActivity.newIntent(context.getApplicationContext(), volume.getImdbID());
+                List<String> movieInfo= volume.getValues();
+                Intent intent = MovieDetailsActivity.newIntent(context.getApplicationContext(), movieInfo);
                 context.startActivity(intent);
             }
         });

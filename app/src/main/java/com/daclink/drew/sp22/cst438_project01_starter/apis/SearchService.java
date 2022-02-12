@@ -11,4 +11,9 @@ public interface SearchService {
     Call<APIValues> searchValues(
             @Query("t") String title
     );
+
+    @GET("?apikey=4d25d61f&type=movie")
+    Call<APIValues> searchValuesByIMDB_Id(
+            @Query("i") String imdbId
+    );
 }
