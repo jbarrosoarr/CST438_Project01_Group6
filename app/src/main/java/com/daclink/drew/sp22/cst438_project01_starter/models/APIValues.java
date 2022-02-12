@@ -17,7 +17,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class APIValues implements Parcelable
 {
-
     @SerializedName("Title")
     @Expose
     private String title;

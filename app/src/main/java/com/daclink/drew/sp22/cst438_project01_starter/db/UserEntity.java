@@ -70,14 +70,14 @@ public class UserEntity {
     }
 
     public boolean addFavMovie(String movie){
-        if(favMovies.contains(movie)!=true){
+        if(!favMovies.contains(movie)){
             return favMovies.add(movie);
         }
         return false;
     }
 
     public boolean addSearchHistory(String movie){
-        if(searchHistory.contains(movie)!=true){
+        if(!searchHistory.contains(movie)){
             return searchHistory.add(movie);
         }
         return false;

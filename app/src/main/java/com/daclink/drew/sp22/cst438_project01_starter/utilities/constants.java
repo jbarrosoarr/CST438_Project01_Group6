@@ -10,4 +10,5 @@ public class constants {
     private static final String API_KEY = "4d25d61f";
     private static final String API_URL = "http://www.omdbapi.com";
     public static final String USER_ID_KEY = "userIdKey";
+    public static final String IMDD_ID = "imdbId";
 }

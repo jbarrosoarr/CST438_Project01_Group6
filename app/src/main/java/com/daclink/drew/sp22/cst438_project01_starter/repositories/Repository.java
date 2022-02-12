@@ -1,7 +1,5 @@
 package com.daclink.drew.sp22.cst438_project01_starter.repositories;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -42,7 +40,24 @@ public class Repository {
                 .enqueue(new Callback<APIValues>() {
                     @Override
                     public void onResponse(Call<APIValues> call, Response<APIValues> response) {
-                        //System.out.println(call);
+                        if (response.body() != null) {
+                            responseLiveData.postValue(response.body());
+                            System.out.println(response);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<APIValues> call, Throwable t) {
+                        responseLiveData.postValue(null);
+                    }
+                });
+    }
+
+    public void searchMovieByIMDB_Id(String imdbId) {
+        searchService.searchValues(imdbId)
+                .enqueue(new Callback<APIValues>() {
+                    @Override
+                    public void onResponse(Call<APIValues> call, Response<APIValues> response) {
                         if (response.body() != null) {
                             responseLiveData.postValue(response.body());
                             System.out.println(response);

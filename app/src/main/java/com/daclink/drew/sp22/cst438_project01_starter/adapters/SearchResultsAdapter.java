@@ -1,5 +1,7 @@
 package com.daclink.drew.sp22.cst438_project01_starter.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.daclink.drew.sp22.cst438_project01_starter.MovieDetailsActivity;
 import com.daclink.drew.sp22.cst438_project01_starter.models.APIValues;
 import com.daclink.drew.sp22.cst438_project01_starter.R;
 
 public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdapter.SearchResultHolder> {
     private APIValues results = new APIValues();
+    private Context context;
 
     @NonNull
     @Override
@@ -23,6 +27,10 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
                 .inflate(R.layout.movie_item, parent, false);
 
         return new SearchResultHolder(itemView);
+    }
+
+    public SearchResultsAdapter(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -44,11 +52,19 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         if (volume.getDirector() != null) {
             holder.directorTextView.setText(volume.getDirector());
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = MovieDetailsActivity.newIntent(context.getApplicationContext(), volume.getImdbID());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 25;
+        return 5;
     }
 
     public void setResults(APIValues results) {

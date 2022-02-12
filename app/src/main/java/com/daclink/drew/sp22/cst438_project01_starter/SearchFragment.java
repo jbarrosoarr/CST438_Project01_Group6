@@ -45,7 +45,7 @@ public class SearchFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        adapter = new SearchResultsAdapter();
+        adapter = new SearchResultsAdapter(getContext());
 
         viewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
         viewModel.init();
