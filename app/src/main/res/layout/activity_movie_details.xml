@@ -24,8 +24,8 @@
 
             <ImageView
                 android:id="@+id/movie_details_imageview"
-                android:layout_width="130dp"
-                android:layout_height="160dp"
+                android:layout_width="145dp"
+                android:layout_height="200dp"
                 android:layout_margin="18dp" />
 
             <LinearLayout
@@ -38,6 +38,8 @@
                     android:id="@+id/movie_details_director"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:padding="4dp"
                     android:text="@string/director"
                     android:textColor="@color/black"
                     android:textSize="15sp"/>
@@ -53,22 +55,22 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/movie_details_genre"
+                    android:id="@+id/movie_details_metascore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:padding="4dp"
-                    android:text="@string/genre"
+                    android:text="@string/metascore"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/movie_details_runtime"
+                    android:id="@+id/movie_details_box_office"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:padding="4dp"
-                    android:text="@string/runtime"
+                    android:text="@string/box_office"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -94,7 +96,25 @@
             android:padding="4dp"
             android:text="@string/title"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/movie_details_genre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:padding="4dp"
+            android:text="@string/genre"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/movie_details_rated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:padding="4dp"
+            android:text="@string/rated"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/movie_details_plot"
@@ -104,7 +124,7 @@
             android:padding="4dp"
             android:text="@string/plot"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 

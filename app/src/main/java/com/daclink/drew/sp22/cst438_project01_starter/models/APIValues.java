@@ -149,8 +149,11 @@ public class APIValues implements Parcelable
                         this.writer,
                         this.actors,
                         this.plot,
+                        this.metascore,
                         this.language,
                         this.poster,
+                        this.boxOffice,
+                        this.rated,
                         this.country,
                         this.runtime,
                         this.imdbID)
