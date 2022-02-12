@@ -20,6 +20,7 @@ public class UserProfile extends AppCompatActivity {
 
         changePwBtn = (Button) findViewById(R.id.changePW);
         changePwBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 openChangePasswordActivity();
