@@ -1,5 +1,6 @@
 package com.daclink.drew.sp22.cst438_project01_starter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,13 @@ public class FirstFragment extends Fragment {
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
+
+//        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(FirstFragment.this, ChangePasswordActivity.class));
+//            }
+//        });
     }
 
     @Override

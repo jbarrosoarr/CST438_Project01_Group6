@@ -10,30 +10,5 @@ import android.widget.Button;
 import com.google.firebase.firestore.auth.User;
 
 public class UserProfile extends AppCompatActivity {
-    Button logoutBtn;
-    Button changePW;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
-
-        logoutBtn = (Button)findViewById(R.id.logoutBtn);
-        changePW = (Button)findViewById(R.id.changePW);
-
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent = new Intent(UserProfile.this, MainActivity.class);
-                startActivity(new Intent(UserProfile.this, MainActivity.class));
-            }
-        });
-
-        changePW.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(UserProfile.this, ChangePasswordActivity.class));
-            }
-        });
-    }
 }
