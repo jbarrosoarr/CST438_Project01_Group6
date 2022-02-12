@@ -15,7 +15,6 @@ public class UserEntity {
 
     @NonNull
     private String username;
-
     private String password;
     private String name;
     private ArrayList<String> favMovies = new ArrayList<>();
