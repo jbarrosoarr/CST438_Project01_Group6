@@ -141,4 +141,12 @@ public class MovieEntity {
     public void setImdbId(String imdbId) {
         this.imdbId = imdbId;
     }
+
+    public String getBoxOffice() {
+        return boxOffice;
+    }
+
+    public void setBoxOffice(String boxOffice) {
+        this.boxOffice = boxOffice;
+    }
 }

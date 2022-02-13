@@ -15,7 +15,7 @@ import androidx.room.TypeConverters;
 import java.util.ArrayList;
 
 
-@Database(entities = {UserEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {UserEntity.class, MovieEntity.class}, version = 1, exportSchema = false)
 @TypeConverters(ArrayListConverter.class)
 public abstract class AppDatabase extends RoomDatabase{
 
@@ -26,6 +26,7 @@ public abstract class AppDatabase extends RoomDatabase{
     private static AppDatabase instance;
 
     public abstract UserDao userDao();
+    public abstract MovieDao movieDao();
 
     public static synchronized AppDatabase getInstance(Context context) {
 
