@@ -9,6 +9,6 @@ import retrofit2.http.Query;
 public interface SearchService {
     @GET("?apikey=4d25d61f&type=movie")
     Call<APIValues> searchValues(
-            @Query("s") String title
+            @Query("t") String title
     );
 }

@@ -48,12 +48,9 @@ public class SearchFragment extends Fragment {
 
         viewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
         viewModel.init();
-        viewModel.getVolumesResponseLiveData().observe(getViewLifecycleOwner(), new Observer<APIValues>() {
-            @Override
-            public void onChanged(APIValues response) {
-                if (response != null) {
-                    adapter.setResults(response);
-                }
+        viewModel.getVolumesResponseLiveData().observe(getViewLifecycleOwner(), response -> {
+            if (response != null) {
+                adapter.setResults(response);
             }
         });
 //        this.binding.fragmentSearchToFirstFragment.setOnClickListener(view1 -> NavHostFragment.findNavController(SearchFragment.this)
@@ -80,7 +77,6 @@ public class SearchFragment extends Fragment {
 
     public void performSearch() {
         String title = keywordEditText.getEditableText().toString();
-
         viewModel.searchVolumes(title);
     }
 
