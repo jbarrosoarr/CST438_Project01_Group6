@@ -20,8 +20,11 @@ import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentFirstB
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentSearchBinding;
 import com.daclink.drew.sp22.cst438_project01_starter.databinding.FragmentSecondBinding;
 import com.daclink.drew.sp22.cst438_project01_starter.models.APIValues;
+import com.daclink.drew.sp22.cst438_project01_starter.models.Search;
 import com.daclink.drew.sp22.cst438_project01_starter.viewModels.SearchViewModel;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.List;
 
 public class SearchFragment extends Fragment {
 
@@ -49,12 +52,9 @@ public class SearchFragment extends Fragment {
 
         viewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
         viewModel.init();
-        viewModel.getVolumesResponseLiveData().observe(getViewLifecycleOwner(), new Observer<APIValues>() {
-            @Override
-            public void onChanged(APIValues response) {
-                if (response != null) {
-                    adapter.setResults(response);
-                }
+        viewModel.getVolumesResponseLiveData().observe(getViewLifecycleOwner(), response -> {
+            if (response != null) {
+                adapter.setResults(response.getSearch());
             }
         });
 //        this.binding.fragmentSearchToFirstFragment.setOnClickListener(view1 -> NavHostFragment.findNavController(SearchFragment.this)

@@ -12,9 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.daclink.drew.sp22.cst438_project01_starter.models.APIValues;
 import com.daclink.drew.sp22.cst438_project01_starter.R;
+import com.daclink.drew.sp22.cst438_project01_starter.models.Search;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdapter.SearchResultHolder> {
-    private APIValues results = new APIValues();
+    private List<Search> searchResults = new ArrayList<>();
 
     @NonNull
     @Override
@@ -27,13 +31,13 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
     @Override
     public void onBindViewHolder(@NonNull SearchResultHolder holder, int position) {
-        APIValues volume = results;
+        Search results = searchResults.get(position);
 
-        holder.titleTextView.setText(volume.getTitle());
-        holder.releasedDateTextView.setText(volume.getReleased());
+        holder.titleTextView.setText(results.getTitle());
+        holder.releasedDateTextView.setText(results.getYear());
 
-        if (volume.getPoster() != null) {
-            String imageUrl = volume.getPoster()
+        if (results.getPoster() != null) {
+            String imageUrl = results.getPoster()
                     .replace("http://", "https://");
 
             Glide.with(holder.itemView)
@@ -41,18 +45,18 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
                     .into(holder.posterImageView);
         }
 
-        if (volume.getDirector() != null) {
-            holder.directorTextView.setText(volume.getDirector());
+        if (results.getType() != null) {
+            holder.directorTextView.setText(results.getType());
         }
     }
 
     @Override
     public int getItemCount() {
-        return 25;
+        return searchResults.size();
     }
 
-    public void setResults(APIValues results) {
-        this.results = results;
+    public void setResults(List<Search> results) {
+        this.searchResults = results;
         notifyDataSetChanged();
     }
 
