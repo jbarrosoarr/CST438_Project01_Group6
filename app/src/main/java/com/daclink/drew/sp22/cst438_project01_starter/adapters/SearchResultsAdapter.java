@@ -13,7 +13,11 @@ import com.bumptech.glide.Glide;
 import com.daclink.drew.sp22.cst438_project01_starter.models.APIValues;
 import com.daclink.drew.sp22.cst438_project01_starter.R;
 
+import java.util.ArrayList;
+
+
 public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdapter.SearchResultHolder> {
+    private ArrayList<APIValues> searchHist = new ArrayList<>();
     private APIValues results = new APIValues();
 
     @NonNull
@@ -48,12 +52,13 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
     @Override
     public int getItemCount() {
-        return 1;
+        return searchHist.size();
     }
 
     public void setResults(APIValues results) {
         this.results = results;
-        notifyDataSetChanged();
+        this.searchHist.add(results);
+        notifyItemInserted(searchHist.size());
     }
 
     class SearchResultHolder extends RecyclerView.ViewHolder {
