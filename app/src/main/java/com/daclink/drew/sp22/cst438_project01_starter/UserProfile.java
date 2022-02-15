@@ -10,42 +10,51 @@ import android.widget.Button;
 import com.google.firebase.firestore.auth.User;
 
 public class UserProfile extends AppCompatActivity {
+    Button logoutBtn;
+    Button changePW;
+    Button favoritesBtn;
+    Button historyBtn;
 
-    private Button changePwBtn;
-    private Button logoutBtn;
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        changePwBtn = (Button) findViewById(R.id.changePW);
-        logoutBtn = (Button) findViewById(R.id.logoutBtn) ;
+        logoutBtn = (Button)findViewById(R.id.logoutBtn);
+        changePW = (Button)findViewById(R.id.changePW);
+        favoritesBtn = (Button)findViewById(R.id.favorites);
+        historyBtn = (Button)findViewById(R.id.searchHistory);
 
-        changePwBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                openChangePasswordActivity();
-            }
-        });
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userLogout();
+                //Intent intent = new Intent(UserProfile.this, MainActivity.class);
+                startActivity(new Intent(UserProfile.this, MainActivity.class));
             }
         });
 
-    }
+        changePW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UserProfile.this, ChangePasswordActivity.class));
+            }
+        });
 
-    public void openChangePasswordActivity() {
-            Intent intent = new Intent(this, ChangePasswordActivity.class);
-            startActivity(intent);
-    }
+        //NEED TO ADD NEW ACTIVITIES TO GO TO WHEN BUTTON IS CLICKED
 
-    public void userLogout() {
-        Intent intent = new Intent(this, FirstFragment.class);
-        startActivity(intent);
+//        favoritesBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(UserProfile.this, .class));
+//            }
+//        });
+//
+//        historyBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(UserProfile.this, .class));
+//            }
+//        });
     }
-
 }

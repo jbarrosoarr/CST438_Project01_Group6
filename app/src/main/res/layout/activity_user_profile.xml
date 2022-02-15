@@ -85,6 +85,7 @@
                         android:textSize="20sp" />
 
                     <Button
+                        android:id="@+id/favorites"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:includeFontPadding="false"
@@ -127,6 +128,7 @@
                         android:textSize="20sp" />
 
                     <Button
+                        android:id="@+id/searchHistory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:includeFontPadding="false"
