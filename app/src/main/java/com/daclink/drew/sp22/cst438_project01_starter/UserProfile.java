@@ -19,19 +19,33 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         changePwBtn = (Button) findViewById(R.id.changePW);
-        changePwBtn.setOnClickListener(new View.OnClickListener() {
+        logoutBtn = (Button) findViewById(R.id.logoutBtn) ;
 
+        changePwBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 openChangePasswordActivity();
+            }
+        });
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userLogout();
             }
         });
 
     }
 
-        public void openChangePasswordActivity() {
+    public void openChangePasswordActivity() {
             Intent intent = new Intent(this, ChangePasswordActivity.class);
             startActivity(intent);
+    }
+
+    public void userLogout() {
+        Intent intent = new Intent(this, FirstFragment.class);
+        startActivity(intent);
     }
 
 }
